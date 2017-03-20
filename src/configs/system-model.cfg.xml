@@ -8,6 +8,9 @@
 
         <filters>
             <filter name="slf4j-http-logging"/>
+            <filter name="header-normalization"/>
+            <filter name="ip-user"/>
+            <filter name="rate-limiting"/>
         </filters>
 
         <services/>
