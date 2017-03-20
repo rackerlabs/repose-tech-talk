@@ -17,6 +17,9 @@
                 <Pattern>%m</Pattern>
             </PatternLayout>
         </File>
+        <File name="HttpFile" fileName="/var/log/repose/http.log">
+            <PatternLayout pattern="Trans-Id:%X{traceGuid} - %d - %m%n"/>
+        </File>
     </Appenders>
     <Loggers>
         <Root level="info">
@@ -31,6 +34,9 @@
         <Logger name="intrafilter-logging" level="info"/>
         <Logger name="phone-home-message" level="info" additivity="false">
             <AppenderRef ref="PhoneHomeMessages"/>
+        </Logger>
+        <Logger name="http-log" level="info">
+            <AppenderRef ref="HttpFile"/>
         </Logger>
     </Loggers>
 </Configuration>
