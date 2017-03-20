@@ -6,7 +6,9 @@
             <node id="repose_node1" hostname="localhost" http-port="8080"/>
         </nodes>
 
-        <filters/>
+        <filters>
+            <filter name="slf4j-http-logging"/>
+        </filters>
 
         <services/>
 
