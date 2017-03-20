@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rate-limiting xmlns="http://docs.openrepose.org/repose/rate-limiting/v1.0">
+
+    <limit-group id="users-limits" groups="users" default="true">
+        <limit id="get" uri="/service/*" uri-regex="/service/.*" http-methods="GET" unit="MINUTE" value="2"/>
+        <limit id="put" uri="/service/*" uri-regex="/service/.*" http-methods="PUT" unit="MINUTE" value="2"/>
+        <limit id="post" uri="/service/*" uri-regex="/service/.*" http-methods="POST" unit="MINUTE" value="2"/>
+        <limit id="delete" uri="/service/*" uri-regex="/service/.*" http-methods="DELETE" unit="MINUTE" value="2"/>
+        <limit id="all" uri="*" uri-regex="/.*" http-methods="POST PUT GET DELETE" unit="MINUTE" value="5"/>
+    </limit-group>
+
+    <limit-group id="services-limits" groups="services" default="false"/>
+
+</rate-limiting>

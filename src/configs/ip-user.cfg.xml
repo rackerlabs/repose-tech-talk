@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ip-user xmlns="http://docs.openrepose.org/repose/ip-user/v1.0">
+    <group name="services">
+        <cidr-ip>192.168.1.0/24</cidr-ip>
+        <cidr-ip>192.168.0.1/32</cidr-ip>
+    </group>
+    <group name="users">
+        <cidr-ip>0.0.0.0/0</cidr-ip>
+    </group>
+</ip-user>
