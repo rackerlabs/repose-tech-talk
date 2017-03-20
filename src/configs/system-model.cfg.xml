@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<system-model xmlns="http://docs.openrepose.org/repose/system-model/v2.0">
+    <repose-cluster id="repose">
+        <nodes>
+            <node id="repose_node1" hostname="localhost" http-port="8080"/>
+        </nodes>
+
+        <filters/>
+
+        <services/>
+
+        <destinations>
+            <endpoint id="local" protocol="http" hostname="localhost" root-path="/" port="8000" default="true"/>
+        </destinations>
+    </repose-cluster>
+
+    <!-- Please set the enabled attribute to true to send us usage updates and help us improve Repose! -->
+    <phone-home enabled="false"
+                origin-service-id="tech-talk"
+                contact-email="adrian.george@rackspace.com"/>
+</system-model>
