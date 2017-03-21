@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<simple-rbac xmlns="http://docs.openrepose.org/repose/simple-rbac/v1.0">
+    <resources>
+/service/{tenantId}/foo          GET     myServiceUser, myServiceSuperUser
+/service/{tenantId}/foo          PUT     myServiceSuperUser
+/service/{tenantId}/foo          POST    myServiceSuperUser
+/service/{tenantId}/banana   GET     myServiceSuperUser
+    </resources>
+</simple-rbac>
