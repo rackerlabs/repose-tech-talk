@@ -8,6 +8,16 @@
             <blacklist id="all-requests">
                 <header id="X-PP-User"/>
                 <header id="X-PP-Groups"/>
+                <header id="X-Authorization"/>
+                <header id="X-Identity-Status"/>
+                <header id="X-User-Name"/>
+                <header id="X-User-Id"/>
+                <header id="X-Roles"/>
+                <header id="X-Authenticated-By"/>
+                <header id="X-Catalog"/>
+                <header id="X-Impersonator-Id"/>
+                <header id="X-Impersonator-Name"/>
+                <header id="X-Impersonator-Roles"/>
             </blacklist>
         </target>
     </header-filters>
