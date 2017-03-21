@@ -18,6 +18,7 @@
                 <header id="X-Impersonator-Id"/>
                 <header id="X-Impersonator-Name"/>
                 <header id="X-Impersonator-Roles"/>
+                <header id="X-Delegated"/>
             </blacklist>
         </target>
     </header-filters>

@@ -7,6 +7,8 @@
             set-catalog-in-header="false"
     />
 
+    <delegating/>
+
     <cache>
         <timeouts variability="10">
             <token>600</token>
