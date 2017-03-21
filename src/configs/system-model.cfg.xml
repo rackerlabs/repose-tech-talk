@@ -10,6 +10,7 @@
             <filter name="slf4j-http-logging"/>
             <filter name="header-normalization"/>
             <filter name="keystone-v2"/>
+            <filter name="simple-rbac"/>
             <filter name="rate-limiting"/>
         </filters>
 
