@@ -20,6 +20,9 @@
         <File name="HttpFile" fileName="/var/log/repose/http.log">
             <PatternLayout pattern="Trans-Id:%X{traceGuid} - %d - %m%n"/>
         </File>
+        <File name="UaeFile" fileName="/var/log/repose/uae.log">
+            <PatternLayout pattern="%m%n"/>
+        </File>
     </Appenders>
     <Loggers>
         <Root level="info">
@@ -37,6 +40,9 @@
         </Logger>
         <Logger name="http-log" level="info">
             <AppenderRef ref="HttpFile"/>
+        </Logger>
+        <Logger name="uae.entries" level="info">
+            <AppenderRef ref="UaeFile"/>
         </Logger>
     </Loggers>
 </Configuration>
