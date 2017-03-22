@@ -17,6 +17,30 @@ apply plugin: 'com.bmuschko.docker-remote-api'
 import com.bmuschko.gradle.docker.tasks.container.*
 import com.bmuschko.gradle.docker.tasks.image.*
 
+File dockerDir = file("$buildDir/docker")
+
+task copyFiles {
+
+    doLast {
+        dockerDir.mkdirs()
+
+        copy {
+            from "$projectDir/src/docker"
+            into dockerDir
+        }
+
+        copy {
+            from "$projectDir/src/scripts"
+            into "$dockerDir/scripts"
+        }
+
+        copy {
+            from "$projectDir/src/fake-services"
+            into "$dockerDir/fake-services"
+        }
+    }
+}
+
 task buildLogDirectory {
     doLast {
         file("$buildDir/logs").mkdirs()
@@ -24,7 +48,8 @@ task buildLogDirectory {
 }
 
 task buildDemoImage(type: DockerBuildImage) {
-    inputDir = file('src/docker')
+    dependsOn copyFiles
+    inputDir = dockerDir
     tag = 'repose/demo'
 }
 
