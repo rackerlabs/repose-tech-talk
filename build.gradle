@@ -17,15 +17,22 @@ apply plugin: 'com.bmuschko.docker-remote-api'
 import com.bmuschko.gradle.docker.tasks.container.*
 import com.bmuschko.gradle.docker.tasks.image.*
 
+task buildLogDirectory {
+    doLast {
+        file("$buildDir/logs").mkdirs()
+    }
+}
+
 task buildDemoImage(type: DockerBuildImage) {
     inputDir = file('src/docker')
     tag = 'repose/demo'
 }
 
 task createDemoContainer(type: DockerCreateContainer) {
-    dependsOn buildDemoImage
+    dependsOn buildDemoImage, buildLogDirectory
     targetImageId { buildDemoImage.getImageId() }
     portBindings = ['8080:8080']
+    binds = ["$projectDir/src/configs":"/etc/repose", "$buildDir/logs":"/var/log/repose"]
 }
 
 task startDemoContainer(type: DockerStartContainer) {
