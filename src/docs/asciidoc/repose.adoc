@@ -10,10 +10,10 @@
 * It does all the things that every service needs to do
 [%step]
 ** Request Logging
+** Rate Limiting
 ** Authentication
 ** Authorization
 ** Role Based Access Control
-** Rate Limiting
 ** User Access Events
 
 == What Does It Look Like?
@@ -119,3 +119,28 @@ Last chance to leave.
 
 [%step]
 Let's do this.
+
+== Passthrough Example
+
+* This configuration is questionably useful.
+* All it really does is take requests on one port and send them out on another.
+* Let's us know that *Repose* is installed correctly.
+
+[source, bash]
+----
+$ curl -v -X GET http://localhost:8080
+----
+
+tag: `passthrough`
+
+== Http Logging Example
+
+* Records details about the request/response in a separate log.
+* No really, that's it.
+
+[source, bash]
+----
+$ curl -v -X GET http://localhost:8080
+----
+
+tag: `http-log`
