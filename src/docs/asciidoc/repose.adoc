@@ -1,10 +1,121 @@
 = What Can Repose Do For You?
 :backend: deckjs
+:menu:
 
-== Banana
+== What Is Repose?
 
-Phone
+[%step]
+* It's a reverse proxy
+* It's an API management tool
+* It does all the things that every service needs to do
+[%step]
+** Request Logging
+** Authentication
+** Authorization
+** Role Based Access Control
+** Rate Limiting
+** User Access Events
 
-== Foo
+== What Does It Look Like?
 
-Bar
+[%step]
+--
+
+[ditaa, big-picture-diagram, png]
+....
+                  +=-----------------------------------+
+                  | Your Service to the Outside World  |
++------+          |  +------+       +---------------+  |
+|      +------------>|      +=----->|     Your      |  |
+|Client|          |  |Repose|       |    Actual     |  |
+|      |<------------+      |<-----=+    Service    |  |
++------+          |  +------+       +---------------+  |
+                  +------------------------------------+
+....
+--
+
+[%step]
+Zoom In and Enhance
+
+[%step]
+--
+
+[ditaa, repose-diagram, png]
+....
+             +------------------------------------------+
+             |                  Repose                  |
+             | +-----------+                            |
+             | | +----+    |                            |
+             | | |    |    v                            |
+             | | | +--+-------+   /-----------\         |
+             | | | | Filter 1 +=->| Service A |         |
+------------>|-+ | +----------+   \-----------/     +-->+=------->
+             |   | | Filter 2 +=-+                  |   |
+             |   | +----------+  |    /-----------\ |   |
+<------------+<--+ | Filter n |  +--->| Service B | | +-|<-------=+
+             |     +-------+--+       \-----------/ | | |
+             |        ^    |                        | | |
+             |        |    +------------------------+ | |
+             |        +-------------------------------+ |
+             +------------------------------------------+
+....
+--
+
+[%step]
+Zoom Out
+
+
+== What Does It Look Like?
+
+[ditaa, big-picture-diagram, png]
+....
+                  +=-----------------------------------+
+                  | Your Service to the Outside World  |
++------+          |  +------+       +---------------+  |
+|      +------------>|      +=----->|     Your      |  |
+|Client|          |  |Repose|       |    Actual     |  |
+|      |<------------+      |<-----=+    Service    |  |
++------+          |  +------+       +---------------+  |
+                  +------------------------------------+
+....
+
+[%step]
+Zoom In and Enhance
+
+[%step]
+--
+
+[ditaa, your-service-diagram, png]
+....
+             +------------------------------------------+
+             |               Your Service               |
+             |                                          |
+             |                                          |
+             |                                          |
+             |                                          |
+             |  Man, I don't know.                      |
+=----------->|  This is your service;                   |
+             |  I have no idea what's going on in here. |
+             |  It could be anything.                   |
+<-----------=+  Even a boat.                            |
+             |  Is it a boat?                           |
+             |                                          |
+             |                                          |
+             |                                          |
+             +------------------------------------------+
+....
+--
+
+== Demo Time
+
+[%step]
+Are you ready for it?
+
+[%step]
+Are you sure? Because this is going to blow your mind.
+
+[%step]
+Last chance to leave.
+
+[%step]
+Let's do this.
