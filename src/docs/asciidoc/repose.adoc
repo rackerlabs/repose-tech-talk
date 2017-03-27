@@ -210,3 +210,64 @@ $ curl -v -X POST -H "X-Auth-Token: 1234567890" http://localhost:8080/service/12
 ----
 
 tag: `uae`
+
+
+== Other Filters
+
+=== Authentication/Authorization
+* Keystone v2 Basic Auth
+* Keystone v3
+* Valkyrie
+
+=== Rate Limiting
+* Header User
+* URI User
+
+== Other Filters
+
+=== Header Manipulation
+* Add Header
+* Body Extractor to Header
+* Header Translation
+* URI Extractor to Header
+
+=== Body Manipulation
+* Body Patcher
+* Scripting
+* Translation
+
+=== URI Manipulation
+* URI Normalization
+* URI Stripper
+
+== Other Filters
+
+=== Routing
+* Destination Router
+* Versioning
+
+=== Other Stuff
+* API Validator
+* CORS
+
+
+== Questions?
+
+You have them.
+
+[%step]
+I might have answers.
+
+
+== Thanks
+
+=== Contact Us
+
+* Email: reposecore@rackspace.com
+* IRC: #repose on freenode
+* Internal slack: #repose or @reposeninja
+
+=== More Info
+
+* Site: http://www.openrepose.org
+* This Presentation: http://www.github.com/rackerlabs/repose-tech-talk
