@@ -1,0 +1,49 @@
+= *Repose* Tech Talk & Demo
+
+== Requirements
+
+* _Git_ - To clone this repo
+* _JDK_ 8+ - To run the _gradle_ build that starts the container and builds the slides
+* _Docker_ - The demo runs in a container
+* _curl_ - To send requests to the container
+
+== Building the Presentation
+
+. Clone the _git_ repo
+
+. From root of the checked out project, run the _Gradle_ task
++
+[source, bash]
+--
+$ ./gradlew.sh asciidoctor
+--
+
+. Open up the presentation in the browser
++
+It's located in `_$rootOfProject_/build/asciidoctor/html5/repose.html`
+
+== Running the Demo
+
+. If you haven't already, clone the _git_ repo
+
+. From root of the checked out project, run the _Gradle_ task
++
+[source, bash]
+--
+$ ./gradlew.sh startDemoContainer
+--
+
+. Testing a specific configuration
+
+.. Checkout the tag listed on the slide
+
+.. Run the _curl_ commands from the slide as appropriate
+
+.. Review the logs
++
+They are found in `_$rootOfProject_/build/logs`
+
+== Playing with the Config
+
+You can mess around with the configs in `_$rootOfProject_/src/configs` as much as you want.
+They are mounted into the container and will live update with your changes.
