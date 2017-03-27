@@ -2,6 +2,7 @@
 :backend: deckjs
 :menu:
 
+
 == What Is Repose?
 
 [%step]
@@ -15,6 +16,7 @@
 ** Authorization
 ** Role Based Access Control
 ** User Access Events
+
 
 == What Does It Look Like?
 
@@ -64,7 +66,6 @@ Zoom In and Enhance
 [%step]
 Zoom Out
 
-
 == What Does It Look Like?
 
 [ditaa, big-picture-diagram, png]
@@ -106,6 +107,7 @@ Zoom In and Enhance
 ....
 --
 
+
 == Demo Time
 
 [%step]
@@ -120,6 +122,7 @@ Last chance to leave.
 [%step]
 Let's do this.
 
+
 == Passthrough Example
 
 * This configuration is questionably useful.
@@ -133,6 +136,7 @@ $ curl -v -X GET http://localhost:8080
 
 tag: `passthrough`
 
+
 == Http Logging Example
 
 * Records details about the request/response in a separate log.
@@ -144,3 +148,65 @@ $ curl -v -X GET http://localhost:8080
 ----
 
 tag: `http-log`
+
+
+== Rate Limiting Example
+
+* Sets up header normalization so rate limiting can't be spoofed.
+* Sets up the IP user filtered to get IP information for...
+* Sets up rate limiting for different resources
+
+[source, bash]
+----
+$ curl -v -X GET http://localhost:8080/service/foo
+$ curl -v -X POST http://localhost:8080/service/foo
+$ curl -v -X GET http://localhost:8080
+----
+
+tag: `rate-limiting`
+
+
+== Authentication/Authorization Example
+
+* Authenticates a Keystone v2 user token
+* Authorizes against the requested tenant
+* Authorizes against the endpoints in their catalog
+* Enables role based rate limiting
+
+[source, bash]
+----
+$ curl -v -X GET http://localhost:8080/service/1234567890/foo
+$ curl -v -X GET -H "X-Auth-Token: 1234567890" http://localhost:8080/service/1234567890/foo
+----
+
+tag: `keystone`
+
+
+== Role Based Access Control Example
+
+* Uses the roles and groups from Keystone to grant access to specific resources
+* Can restrict by method as well as role
+
+[source, bash]
+----
+$ curl -v -X GET -H "X-Auth-Token: 1234567890" http://localhost:8080/service/1234567890/foo
+$ curl -v -X POST -H "X-Auth-Token: 1234567890" http://localhost:8080/service/1234567890/foo
+----
+
+tag: `rbac`
+
+
+== User Access Events Example
+
+* Collects request and response information for the event
+* Event is moustache template based
+* Ships with a *Cloud Feeds* ready template
+* *Flume* ready with a separately published *Cloud Feeds* based sink
+
+[source, bash]
+----
+$ curl -v -X GET -H "X-Auth-Token: 1234567890" http://localhost:8080/service/1234567890/foo
+$ curl -v -X POST -H "X-Auth-Token: 1234567890" http://localhost:8080/service/1234567890/foo
+----
+
+tag: `uae`
