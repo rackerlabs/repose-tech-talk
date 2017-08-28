@@ -1,4 +1,4 @@
-FROM rackerlabs/repose:8.4.1.0
+FROM rackerlabs/repose:8.6.3.0
 
 MAINTAINER The Repose Team <reposecore@rackspace.com>
 
@@ -9,6 +9,7 @@ RUN apt-get update -qq && apt-get install -y -qq \
 
 COPY fake-services /demo/fake-services
 COPY scripts /demo/scripts
+COPY artifacts /usr/share/repose/filters
 
 RUN sh /demo/scripts/node_install.sh
 

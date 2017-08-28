@@ -39,12 +39,36 @@ function createAccessJsonWithValues(values = {}) {
                 name: username,
                 'RAX-AUTH:defaultRegion': 'the-default-region',
                 'RAX-AUTH:contactId': contactId,
-                roles: function() {
-                    return roleNames.reduce(function(acc, cur, i) {
-                        acc[i] = { id: i.toString(), name: cur };
-                        return acc;
-                    }, []);
-                }()
+                roles: [
+                    {
+                        id: 'no-tenant-role-1',
+                        name: 'no-tenant-role-1'
+                    },
+                    {
+                        id: 'no-tenant-role-2',
+                        name: 'no-tenant-role-2'
+                    },
+                    {
+                        id: 'non-matching-tenant-role-1',
+                        name: 'non-matching-tenant-role-1',
+                        tenantId: 'non-matching-tenant-id-1'
+                    },
+                    {
+                        id: 'non-matching-tenant-role-2',
+                        name: 'non-matching-tenant-role-2',
+                        tenantId: 'non-matching-tenant-id-2'
+                    },
+                    {
+                        id: 'matching-tenant-role-1',
+                        name: 'matching-tenant-role-1',
+                        tenantId: 'matching-tenant-id-1'
+                    },
+                    {
+                        id: 'matching-tenant-role-2',
+                        name: 'matching-tenant-role-2',
+                        tenantId: 'matching-tenant-id-2'
+                    }
+                ]
             },
             serviceCatalog: [
                 {

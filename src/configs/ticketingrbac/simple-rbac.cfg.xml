@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<simple-rbac xmlns="http://docs.openrepose.org/repose/simple-rbac/v1.0">
+    <resources>
+/service/{tenantId}/resource     ALL  matching-tenant-role-1,matching-tenant-role-2
+/service/{tenantId}/resource2    ALL  no-tenant-role-1
+    </resources>
+</simple-rbac>

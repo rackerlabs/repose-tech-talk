@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keystone-v2 xmlns="http://docs.openrepose.org/repose/keystone-v2/v1.0">
+    <identity-service
+            uri="http://localhost:9090"
+            set-groups-in-header="false"
+            set-catalog-in-header="false"
+            apply-rcn-roles="true"/>
+</keystone-v2>

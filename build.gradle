@@ -8,7 +8,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.bmuschko:gradle-docker-plugin:3.0.6'
+        classpath 'com.bmuschko:gradle-docker-plugin:3.0.7'
         classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.3'
         classpath 'org.ajoberstar:gradle-git:1.3.2'
     }
@@ -49,6 +49,11 @@ task copyDemoFiles {
             from "$projectDir/src/fake-services"
             into "$dockerDir/fake-services"
         }
+
+        copy {
+            from "$projectDir/src/artifacts"
+            into "$dockerDir/artifacts"
+        }
     }
 }
 
@@ -64,18 +69,29 @@ task buildDemoImage(type: DockerBuildImage) {
     tag = 'repose/demo'
 }
 
-task createDemoContainer(type: DockerCreateContainer) {
+task createTechTalkDemoContainer(type: DockerCreateContainer) {
     dependsOn buildDemoImage, buildLogDirectory
     targetImageId { buildDemoImage.getImageId() }
     portBindings = ['8080:8080']
-    binds = ["$projectDir/src/configs":"/etc/repose", "$buildDir/logs":"/var/log/repose"]
+    binds = ["$projectDir/src/configs/techtalk":"/etc/repose", "$buildDir/logs":"/var/log/repose"]
 }
 
-task startDemoContainer(type: DockerStartContainer) {
-    dependsOn createDemoContainer
-    targetContainerId { createDemoContainer.getContainerId() }
+task createTicketingRbacDemoContainer(type: DockerCreateContainer) {
+    dependsOn buildDemoImage, buildLogDirectory
+    targetImageId { buildDemoImage.getImageId() }
+    portBindings = ['8080:8080']
+    binds = ["$projectDir/src/configs/ticketingrbac":"/etc/repose", "$buildDir/logs":"/var/log/repose"]
 }
 
+task startTechTalkDemoContainer(type: DockerStartContainer) {
+    dependsOn createTechTalkDemoContainer
+    targetContainerId { createTechTalkDemoContainer.getContainerId() }
+}
+
+task startTicketingRbacDemoContainer(type: DockerStartContainer) {
+    dependsOn createTicketingRbacDemoContainer
+    targetContainerId { createTicketingRbacDemoContainer.getContainerId() }
+}
 
 //AsciiDoctor Stuff
 File deckJsTemplates = file("$buildDir/deckJsTemplates")
